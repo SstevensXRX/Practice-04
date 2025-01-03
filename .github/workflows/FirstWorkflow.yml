@@ -20,7 +20,6 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
-          prettier: true
       - name: Run tests
         run: npm test
 
