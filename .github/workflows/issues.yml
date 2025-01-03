@@ -1,6 +1,7 @@
 name: Issues event data
 on: 
-  issues: [opened, editied, closed]
+  issues: 
+    types: [opened, editied, closed]
   workflow_dispatch:
 jpbs: 
   ReportEvent:
