@@ -1,0 +1,28 @@
+Name: Test and Deploy
+on: 
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+jobs:
+  test:
+     runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.12.0'
+      - name: Install dependencies
+        run: npm ci 
+      - name: Run Linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
+      - name: Run tests
+        run: npm test
+
+
+
