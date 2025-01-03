@@ -1,0 +1,10 @@
+name: Issues event data
+on: 
+  issues: [opened, editied, closed]
+  workflow_dispatch:
+jpbs: 
+  ReportEvent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Data
+        run: echo "${{toJSON(github.event)}}"
